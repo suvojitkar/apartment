@@ -14,3 +14,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.name_user{
+	color:white;
+}
+
+.contact_us{
+	position:absolute;
+	bottom: 0;
+	text-align:center;
+	color:grey
+}
+
+.right_float{
+	float:right;
+}
+
+.icons{
+	padding-right: 3%;
+}

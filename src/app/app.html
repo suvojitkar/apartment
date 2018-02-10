@@ -7,7 +7,7 @@
                    </ion-col>
               <ion-col col-8>
                   <div *ngIf='userReady' class="name_user"><h3>{{user.name}}</h3></div>
-                  <p class="nav-brand">Apartment</p>
+                  <p class="nav-brand name_user">Apartment</p>
               </ion-col>
           </ion-row>
     </ion-toolbar>
@@ -16,11 +16,14 @@
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon class="icons" name="{{p.icon}}"></ion-icon>{{p.title}}
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float"></ion-icon>
       </button>
       <button menuClose ion-item (click)="logout()">
-        logout
+        <ion-icon class="icons" name="arrow-round-back"></ion-icon>logout
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float"></ion-icon>
       </button>
+      <button menuClose ion-item class="contact_us">Contact us | More</button>
     </ion-list>
   </ion-content>
 

@@ -6,19 +6,21 @@ import { Events } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { ListPage } from '../pages/list/list';
+import { WaterPage } from '../pages/water/water';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Facebook } from '@ionic-native/facebook';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    ListPage
+    WaterPage
   ],
   imports: [
     BrowserModule,
@@ -29,13 +31,14 @@ import { GooglePlus } from '@ionic-native/google-plus';
     MyApp,
     HomePage,
     LoginPage,
-    ListPage
+    WaterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     NativeStorage,
     GooglePlus,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

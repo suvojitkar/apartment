@@ -1,3 +1,15 @@
 page-home {
-
+    #notifications-badge {
+        color: rgba(255, 255, 255, 30);
+        position: absolute;
+        top: -4px;
+        right: -16px;
+        border-radius: 100%;
+    }
+    .cart-space {
+        padding-right: 5%;
+    }
+    .apartmentname{
+       margin-left:40%;
+    }
 }

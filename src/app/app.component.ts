@@ -6,10 +6,12 @@ import { Events } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { ListPage } from '../pages/list/list';
+import { WaterPage } from '../pages/water/water';
 
 import { NativeStorage } from '@ionic-native/native-storage';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Facebook } from '@ionic-native/facebook';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +23,7 @@ export class MyApp {
   user:any;
   userReady: boolean = false;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public nativeStorage: NativeStorage,private googlePlus: GooglePlus,public events: Events) {
     this.platform.ready().then(() => {
@@ -59,15 +61,20 @@ export class MyApp {
       
       // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Water', component: WaterPage, icon: 'water' },
+      { title: 'Stores', component: WaterPage, icon: 'pricetags' },
+      { title: 'Doctor', component: WaterPage, icon: 'contact' },
+      { title: 'Repair', component: WaterPage, icon: 'cog' },
+      { title: 'Community', component: WaterPage, icon: 'people' },
+      { title: 'Emergency', component: WaterPage, icon: 'timer' }
     ];
   });
 
   }
 
   openPage(page) {
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component,{}, {animate: true, animation:'transition',duration:300,direction: 'forward'});
   }
 
   logout(){

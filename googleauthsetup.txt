@@ -20,3 +20,5 @@ Warning:
 The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore /Users/suvojitkar/.android/debug.keystore -destkeystore /Users/suvojitkar/.android/debug.keystore -deststoretype pkcs12".
 
 webid : 125054159410-ssqvg0uumq35oqs2f19196uq64iveaj0.apps.googleusercontent.com
+
+fbappid : 2041492695877679

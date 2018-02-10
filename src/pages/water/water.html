@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Water</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <ion-card-content>
+<ion-item>
+    <ion-label color="primary">Number of cans : </ion-label>
+    <ion-input placeholder="Water Cans"></ion-input>
+</ion-item>
+<hr>
+<ion-item>
+    <ion-label color="primary"> Apartment : </ion-label>
+    <ion-input placeholder="Flat and apartment number"></ion-input>
+</ion-item>
+<hr>
+<ion-list radio-group [(ngModel)]="time">
+  <ion-item>
+    <ion-label>Immediately</ion-label>
+    <ion-radio value="friends" checked></ion-radio>
+  </ion-item>
+</ion-list>
+     <b><span style="margin-left:50%">or</span></b>
+    <ion-item>
+      <ion-label><b>Delivery After :</b></ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime> 
+   </ion-item>
+   <br>
+   <button ion-button full>Submit</button>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

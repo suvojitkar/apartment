@@ -1,18 +1,37 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<ion-content class="background-img background-colr">
+  <div class="cont">
+      <h1 class="title">ApkaApartment</h1>
+      <h4 class="subTitle">Taking the thinking out of living </h4>
+    </div>
 
 
-<ion-content padding>
-   <button ion-button full (click)="login_google()">Google+</button>
+
+   <div class="social-btn">
+      <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8 class="social-content social-fb" (click)='login_facebook()'>
+               <!-- <img src="assets/icon/Facebook.svg"> -->
+               <ion-icon name="logo-facebook" style="font-size:37px;padding-left:10px"></ion-icon>
+               <span class="social_icon">Login with Facebook</span>
+          </ion-col>
+          <ion-col col-2></ion-col>
+     </ion-row>
+     <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+               <div class="orsocial"> <b> or </b> </div>
+          </ion-col>
+          <ion-col col-2></ion-col>
+     </ion-row>
+     <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8 class="social-content social-g" (click)='login_google()'>
+               <!-- <img src="assets/icon/Google+.svg"> -->
+               <ion-icon name="logo-googleplus" style="font-size:37px;padding-left:10px"></ion-icon>
+               <span class="social_icon">Login with Google+</span>
+          </ion-col>
+          <ion-col col-2></ion-col>
+     </ion-row>
+  </div>
+
 </ion-content>
