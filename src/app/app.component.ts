@@ -2,9 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Events } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
+
+import { NativeStorage } from '@ionic-native/native-storage';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,33 +17,62 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
+  user:any;
+  userReady: boolean = false;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public nativeStorage: NativeStorage,private googlePlus: GooglePlus,public events: Events) {
+    this.platform.ready().then(() => {
+      let env=this;
+      this.statusBar.styleDefault();
+      
 
-    // used for an example of ngFor and navigation
+      this.nativeStorage.getItem('user')
+        .then( function (user) {
+        console.log(JSON.stringify(user));
+            env.user = user;
+            env.userReady = true;
+            env.nav.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300,direction: 'forward'});
+            setTimeout(() => {
+             env.splashScreen.hide();
+          }, 1500);
+        }, function (error) {
+            env.nav.setRoot(LoginPage, {}, {animate: true, animation:'transition',duration:300,  direction: 'forward'});
+            setTimeout(() => {
+             env.splashScreen.hide();
+          }, 1500);
+        });
+
+      events.subscribe('user:created',(time) => {
+         this.nativeStorage.getItem('user')
+          .then( function (user) {
+              console.log("user logged in");
+              console.log("user - "+JSON.stringify(user));
+              env.user = user;
+              env.userReady = true;
+          }, function (error) {
+             console.log(error);
+          });
+    });
+      
+      // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage }
     ];
+  });
 
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    let env = this;
+    this.nativeStorage.remove('user');
+    env.nav.setRoot(LoginPage, {}, {animate: true, animation:'transition',duration:300,direction: 'forward'});
   }
 }

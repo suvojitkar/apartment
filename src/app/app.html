@@ -1,7 +1,15 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-row>
+              <ion-col col-4>
+                   <div *ngIf='userReady'><img [src]="user.picture" class="pic_user"></div>
+                   </ion-col>
+              <ion-col col-8>
+                  <div *ngIf='userReady' class="name_user"><h3>{{user.name}}</h3></div>
+                  <p class="nav-brand">Apartment</p>
+              </ion-col>
+          </ion-row>
     </ion-toolbar>
   </ion-header>
 
@@ -9,6 +17,9 @@
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="logout()">
+        logout
       </button>
     </ion-list>
   </ion-content>

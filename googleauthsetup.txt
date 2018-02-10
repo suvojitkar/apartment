@@ -1,0 +1,22 @@
+suvojitkar:apartment suvojitkar$ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+Alias name: androiddebugkey
+Creation date: 1 Dec, 2017
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Fri Dec 01 12:51:40 IST 2017 until: Sun Nov 24 12:51:40 IST 2047
+Certificate fingerprints:
+	 MD5:  88:FB:0B:D7:5F:1F:3D:4C:96:67:21:AA:85:3F:09:BC
+	 SHA1: 8D:90:2E:01:24:44:A7:3D:F9:38:FD:7E:58:8A:49:8C:B2:37:AE:8F
+	 SHA256: E9:F6:2D:78:05:2E:70:71:BA:03:E9:A0:9B:20:14:BC:10:AB:A5:E9:E9:EE:66:70:BE:78:FA:A4:B7:BE:F9:01
+Signature algorithm name: SHA1withRSA
+Subject Public Key Algorithm: 1024-bit RSA key
+Version: 1
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore /Users/suvojitkar/.android/debug.keystore -destkeystore /Users/suvojitkar/.android/debug.keystore -deststoretype pkcs12".
+
+webid : 125054159410-ssqvg0uumq35oqs2f19196uq64iveaj0.apps.googleusercontent.com
