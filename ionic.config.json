@@ -1,6 +1,6 @@
 {
   "name": "apartment",
-  "app_id": "",
+  "app_id": "f376407d",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

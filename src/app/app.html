@@ -2,11 +2,13 @@
   <ion-header>
     <ion-toolbar>
       <ion-row>
-              <ion-col col-4>
+              <ion-col col-3>
                    <div *ngIf='userReady'><img [src]="user.picture" class="pic_user"></div>
+                   <div *ngIf='!userReady'><img class="pic_user" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTycewbr9Y9lN7Qn1Yl5e9CHBbleZpUMjqD23wcfOp5FKbhNMeUSg" class="pic_user"></div>
                    </ion-col>
-              <ion-col col-8>
+              <ion-col col-9>
                   <div *ngIf='userReady' class="name_user"><h3>{{user.name}}</h3></div>
+                  <div *ngIf='!userReady' class="name_user"><h3>Suvojit Raj Kar</h3></div>
                   <p class="nav-brand name_user">Apartment</p>
               </ion-col>
           </ion-row>

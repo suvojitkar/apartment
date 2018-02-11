@@ -22,3 +22,4 @@ The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS
 webid : 125054159410-ssqvg0uumq35oqs2f19196uq64iveaj0.apps.googleusercontent.com
 
 fbappid : 2041492695877679
+hashkey : Dop2Az7BkP+Ga9bTbs2Q4ZbYIfY=

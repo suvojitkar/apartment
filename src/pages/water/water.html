@@ -11,22 +11,20 @@
   <ion-card>
   <ion-card-content>
 <ion-item>
-    <ion-label color="primary">Number of cans : </ion-label>
-    <ion-input placeholder="Water Cans"></ion-input>
-</ion-item>
-<hr>
-<ion-item>
-    <ion-label color="primary"> Apartment : </ion-label>
-    <ion-input placeholder="Flat and apartment number"></ion-input>
-</ion-item>
-<hr>
-<ion-list radio-group [(ngModel)]="time">
-  <ion-item>
-    <ion-label>Immediately</ion-label>
-    <ion-radio value="friends" checked></ion-radio>
+    <ion-label><b>Number of cans : </b></ion-label>
+    <ion-input type="number"></ion-input>
   </ion-item>
+<ion-item>
+    <ion-label><b>Block : </b></ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+<ion-item>
+    <ion-label><b>Flat No : </b></ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+<ion-list radio-group [(ngModel)]="time">
 </ion-list>
-     <b><span style="margin-left:50%">or</span></b>
     <ion-item>
       <ion-label><b>Delivery After :</b></ion-label>
       <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime> 
