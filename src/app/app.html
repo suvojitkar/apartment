@@ -19,11 +19,11 @@
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon class="icons" name="{{p.icon}}"></ion-icon>{{p.title}}
-        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float"></ion-icon>
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float" showWhen="android"></ion-icon>
       </button>
       <button menuClose ion-item (click)="logout()">
         <ion-icon class="icons" name="arrow-round-back"></ion-icon>logout
-        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float"></ion-icon>
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" class="right_float" showWhen="android"></ion-icon>
       </button>
       <button menuClose ion-item class="contact_us">Contact us | More</button>
     </ion-list>

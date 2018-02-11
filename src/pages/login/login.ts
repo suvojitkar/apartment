@@ -6,6 +6,7 @@ import { Events } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HomePage } from '../home/home';
 import { Facebook } from '@ionic-native/facebook';
+import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,11 +21,20 @@ export class LoginPage {
   imageUrl:any;
   userReady: boolean = false;
 
-  constructor(public navCtrl: NavController, public events: Events, public nativeStorage: NativeStorage, public navParams: NavParams,public loadingCtrl: LoadingController,private googlePlus: GooglePlus, public fb: Facebook) {
+  constructor(public navCtrl: NavController, public events: Events, public alertCtrl: AlertController, public nativeStorage: NativeStorage, public navParams: NavParams,public loadingCtrl: LoadingController,private googlePlus: GooglePlus, public fb: Facebook) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  alert(){
+     let alert = this.alertCtrl.create({
+      title: 'OOPS!',
+      subTitle: 'Error in logging in!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 
@@ -65,9 +75,10 @@ export class LoginPage {
                 loading.dismiss();
                 }, 1000);
               }, function (error) {
-                env.userReady = true;
-                env.events.publish('user:created',Date.now());
-                env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
+                env.alert();
+                // env.userReady = true;
+                // env.events.publish('user:created',Date.now());
+                // env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
                 setTimeout(() => {
                   loading.dismiss();
                 }, 1000);
@@ -76,9 +87,10 @@ export class LoginPage {
       }, function(error){
            console.log("Case-3");
            console.log(error);
-           env.userReady = true;
-           env.events.publish('user:created',Date.now());
-           env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
+           env.alert();
+           // env.userReady = true;
+           // env.events.publish('user:created',Date.now());
+           // env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
            setTimeout(() => {
                   loading.dismiss();
                 }, 1000);
@@ -118,9 +130,10 @@ export class LoginPage {
           }, function (error) {     //could not store in native storage
 	          	console.log("Case-2");
 	          	console.log(error);
-	          	env.userReady = true;
-	          	env.events.publish('user:created',Date.now());
-	          	env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
+              env.alert();
+	          	// env.userReady = true;
+	          	// env.events.publish('user:created',Date.now());
+	          	// env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
 	            setTimeout(() => {
                 loading.dismiss();
               }, 1000);
@@ -129,9 +142,10 @@ export class LoginPage {
       function (error) {     //could not store in native storage due to other issue
       	console.log("Case-3");
       	console.log(error);
-      	env.userReady = true;
-      	env.events.publish('user:created',Date.now());
-	      env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
+        env.alert();
+      	// env.userReady = true;
+      	// env.events.publish('user:created',Date.now());
+	      // env.navCtrl.setRoot(HomePage, {}, {animate: true, animation:'transition',duration:300, direction: 'forward'});
       	setTimeout(() => {
                   loading.dismiss();
                 }, 1000);
